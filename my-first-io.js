@@ -1,11 +1,8 @@
 const fs = require('fs');
 
-// fs.readFileSync('/path/to/file')
-// returns Buffer Objet
+const filePath = process.argv[2];
 
-//toString() Buffer
-
-const contents = fs.readFileSync(process.argv[2]);
-const lines = contents.toString().split('\n').length -1;
-
-console.log(lines);
+const fileContents = fs.readFileSync(filePath, 'utf8');
+const lines = fileContents.split('\n');
+const newLinesCount = lines.length - 1;
+console.log(newLinesCount);
